@@ -1,4 +1,4 @@
-![Build](https://github.com/github/docs/actions/workflows/build.yml/badge.svg?event=push)
+![example workflow](https://github.com/Manto00/Tos-assigment-2/actions/workflows/build.yml/badge.svg)
 ![Coverage](.github/badges/jacoco.svg)
 ![Branches](.github/badges/branches.svg)
 # Assignment-elettronica-2
