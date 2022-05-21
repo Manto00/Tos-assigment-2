@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import it.unipd.mtss.model.EItem;
-import it.unipd.mtss.business.Bill;
+import it.unipd.mtss.business.bill.Bill;
 
 public class ContoTest {
 
