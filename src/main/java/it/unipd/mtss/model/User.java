@@ -6,18 +6,21 @@
 package it.unipd.mtss.model;
 
 import java.time.LocalDate;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class User {
     private int id;
     private String name;
     private LocalDate nascita;
-    private static final AtomicInteger count=new AtomicInteger(0);
+    private static int count=0;
 
     public User(String name, LocalDate nascita){
-        id=count.incrementAndGet();
+        id=count++;
         this.name=name;
         this.nascita=nascita;
+    }
+
+    public static void setCount(int val){
+        count=val;
     }
 
     public String getName() {

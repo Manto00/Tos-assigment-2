@@ -9,5 +9,6 @@
         <module name="e-shop" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="18" />
   </component>
 </project>
