@@ -8,6 +8,7 @@ import it.unipd.mtss.business.Bill;
 import it.unipd.mtss.business.exception.BillException;
 import it.unipd.mtss.model.EItem;
 import it.unipd.mtss.model.User;
+import it.unipd.mtss.model.itemType;
 
 import java.util.List;
 
@@ -16,25 +17,44 @@ public class Conto implements Bill{
     private List&lt;EItem&gt; lista;
 
     @Override
-    public double getOrderPrice(List&lt;EItem&gt; itemsOrdered, User user) throws BillException {
-<span class="fc" id="L20">        double finalPrezzo=0;</span>
-<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (int i=0; i&lt;itemsOrdered.size(); i++){</span>
-<span class="fc" id="L22">            EItem temp=itemsOrdered.get(i);</span>
-<span class="fc" id="L23">            finalPrezzo+=temp.getPrice();</span>
+    public double getOrderPrice(List&lt;EItem&gt; itemsOrdered, User user)
+            throws BillException {
+<span class="fc" id="L22">        double finalPrezzo=0;</span>
+<span class="fc" id="L23">        int n_processori=0;</span>
+<span class="fc" id="L24">        double min_processori_price=0;</span>
+<span class="fc" id="L25">        boolean first=false;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (int i=0; i&lt;itemsOrdered.size(); i++){</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">            if(itemsOrdered.get(i).getItemType()== itemType.processori)</span>
+            {
+<span class="fc" id="L29">                n_processori++;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">                if(!first){</span>
+<span class="fc" id="L31">                    min_processori_price=itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L32">                    first=true;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                } else if (itemsOrdered.get(i).getPrice()</span>
+                        &lt;min_processori_price) {
+<span class="fc" id="L35">                    min_processori_price = itemsOrdered.get(i).getPrice();</span>
+                }
+            }
+
+<span class="fc" id="L39">            EItem temp=itemsOrdered.get(i);</span>
+<span class="fc" id="L40">            finalPrezzo+=temp.getPrice();</span>
         }
-<span class="fc" id="L25">        return finalPrezzo;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if(n_processori&gt;5){</span>
+<span class="fc" id="L43">            finalPrezzo-=(min_processori_price/2);</span>
+        }
+<span class="fc" id="L45">        return finalPrezzo;</span>
     }
 
-<span class="fc" id="L28">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
-<span class="fc" id="L29">        this.utente=utente;</span>
-<span class="fc" id="L30">        this.lista=lista;</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L48">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
+<span class="fc" id="L49">        this.utente=utente;</span>
+<span class="fc" id="L50">        this.lista=lista;</span>
+<span class="fc" id="L51">    }</span>
 
     public User getUser(){
-<span class="fc" id="L34">        return utente;</span>
+<span class="fc" id="L54">        return utente;</span>
     }
     public List&lt;EItem&gt; getList(){
-<span class="fc" id="L37">        return lista;</span>
+<span class="fc" id="L57">        return lista;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
