@@ -16,7 +16,8 @@ public class Conto implements Bill{
     private List<EItem> lista;
 
     @Override
-    public double getOrderPrice(List<EItem> itemsOrdered, User user) throws BillException {
+    public double getOrderPrice(List<EItem> itemsOrdered, User user)
+            throws BillException {
         double finalPrezzo=0;
         for (int i=0; i<itemsOrdered.size(); i++){
             EItem temp=itemsOrdered.get(i);
