@@ -16,9 +16,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class UserTest {
     @Test
     public void SingleConstructorTest(){
+        User.setCount(0);
         String nome="Antonio";
         LocalDate nascita=LocalDate.of(1987, 6, 15);
-        User.setCount(0);
         User utente=new User(nome, nascita);
         Assert.assertEquals(0, utente.getId());
         Assert.assertEquals(nome, utente.getName());
@@ -27,9 +27,9 @@ public class UserTest {
 
     @Test
     public void IdIncrementTest(){
+        User.setCount(0);
         String nome="Mario";
         LocalDate nascita=LocalDate.of(2000, 1, 1);
-        User.setCount(0);
         User utente0=new User(nome, nascita);
         User utente1=new User(nome, nascita);
         User utente2=new User(nome, nascita);
