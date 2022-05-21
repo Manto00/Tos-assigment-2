@@ -8,7 +8,6 @@ package it.unipd.mtss.business;
 import it.unipd.mtss.business.exception.BillException;
 import it.unipd.mtss.model.EItem;
 import it.unipd.mtss.model.User;
-import it.unipd.mtss.business.bill.Bill;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@
 // [RAFFAELE] [OLIVIERO] [1216748]
 ////////////////////////////////////////////////////////////////////
 
-package it.unipd.mtss.business.bill;
+package it.unipd.mtss.business;
 import java.util.List;
 import it.unipd.mtss.business.exception.BillException;
 import it.unipd.mtss.model.EItem;
