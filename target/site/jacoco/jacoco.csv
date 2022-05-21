@@ -1,2 +1,6 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-e-shop,it.unipd.mtss,App,7,0,0,0,3,0,2,0,2,0
+e-shop,it.unipd.mtss.business,Conto,0,37,0,2,0,11,0,5,0,4
+e-shop,it.unipd.mtss.business.exception,BillException,3,0,0,0,1,0,1,0,1,0
+e-shop,it.unipd.mtss.model,itemType,0,21,0,0,0,1,0,1,0,1
+e-shop,it.unipd.mtss.model,EItem,6,15,0,0,2,6,2,2,2,2
+e-shop,it.unipd.mtss.model,User,0,31,0,0,0,11,0,6,0,6

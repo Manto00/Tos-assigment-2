@@ -22,6 +22,7 @@ public class ContoTest {
 
     @Test
     public void getOrderPriceTest() throws BillException {
+        User.setCount(0);
         String nome="esempio";
         itemType mouse=itemType.mouse;
         EItem primo=new EItem(nome, 100, mouse);
@@ -32,8 +33,8 @@ public class ContoTest {
         lista.add(secondo);
         lista.add(terzo);
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
-        int totale=160;
+        double totale=160;
         Conto conto1=new Conto(utente, lista);
-        Assert.assertEquals(totale, conto1.getOrderPrice(conto1.getList(), conto1.getUser()));
+        Assert.assertEquals(totale, conto1.getOrderPrice(conto1.getList(), conto1.getUser()), 0.01);
     }
 }
