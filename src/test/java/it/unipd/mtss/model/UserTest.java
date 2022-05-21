@@ -19,7 +19,7 @@ public class UserTest {
         String nome="Antonio";
         LocalDate nascita=LocalDate.of(1987, 6, 15);
         User utente=new User(nome, nascita);
-        Assert.assertEquals(0, utente.getId());
+        Assert.assertEquals(1, utente.getId());
         Assert.assertEquals(nome, utente.getName());
         Assert.assertEquals(nascita, utente.getNascita());
     }
@@ -31,8 +31,8 @@ public class UserTest {
         User utente0=new User(nome, nascita);
         User utente1=new User(nome, nascita);
         User utente2=new User(nome, nascita);
-        Assert.assertEquals(0, utente0.getId());
-        Assert.assertEquals(1, utente1.getId());
-        Assert.assertEquals(2, utente2.getId());
+        Assert.assertEquals(2, utente0.getId());
+        Assert.assertEquals(3, utente1.getId());
+        Assert.assertEquals(4, utente2.getId());
     }
 }
