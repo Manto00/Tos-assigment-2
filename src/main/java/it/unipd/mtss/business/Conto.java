@@ -5,6 +5,7 @@
 
 package it.unipd.mtss.business;
 
+import it.unipd.mtss.business.Bill;
 import it.unipd.mtss.business.exception.BillException;
 import it.unipd.mtss.model.EItem;
 import it.unipd.mtss.model.User;
@@ -17,7 +18,7 @@ public class Conto implements Bill{
 
     @Override
     public double getOrderPrice(List<EItem> itemsOrdered, User user) throws BillException {
-        int finalPrezzo=0;
+        double finalPrezzo=0;
         for (int i=0; i<itemsOrdered.size(); i++){
             EItem temp=itemsOrdered.get(i);
             finalPrezzo+=temp.getPrice();
