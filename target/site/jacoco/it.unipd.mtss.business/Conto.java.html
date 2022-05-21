@@ -21,40 +21,57 @@ public class Conto implements Bill{
             throws BillException {
 <span class="fc" id="L22">        double finalPrezzo=0;</span>
 <span class="fc" id="L23">        int n_processori=0;</span>
-<span class="fc" id="L24">        double min_processori_price=0;</span>
-<span class="fc" id="L25">        boolean first=false;</span>
-<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (int i=0; i&lt;itemsOrdered.size(); i++){</span>
-<span class="fc bfc" id="L27" title="All 2 branches covered.">            if(itemsOrdered.get(i).getItemType()== itemType.processori)</span>
+<span class="fc" id="L24">        int n_mouse=0;</span>
+<span class="fc" id="L25">        double min_processori_price=0;</span>
+<span class="fc" id="L26">        double min_mouse_price=0;</span>
+<span class="fc" id="L27">        boolean first_mouse=false;</span>
+<span class="fc" id="L28">        boolean first_processore=false;</span>
+
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int i=0; i&lt;itemsOrdered.size(); i++){</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            if(itemsOrdered.get(i).getItemType()== itemType.processori)</span>
             {
-<span class="fc" id="L29">                n_processori++;</span>
-<span class="fc bfc" id="L30" title="All 2 branches covered.">                if(!first){</span>
-<span class="fc" id="L31">                    min_processori_price=itemsOrdered.get(i).getPrice();</span>
-<span class="fc" id="L32">                    first=true;</span>
-<span class="fc bfc" id="L33" title="All 2 branches covered.">                } else if (itemsOrdered.get(i).getPrice()</span>
+<span class="fc" id="L33">                n_processori++;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">                if(!first_processore){</span>
+<span class="fc" id="L35">                    min_processori_price=itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L36">                    first_processore=true;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">                } else if (itemsOrdered.get(i).getPrice()</span>
                         &lt;min_processori_price) {
-<span class="fc" id="L35">                    min_processori_price = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L39">                    min_processori_price = itemsOrdered.get(i).getPrice();</span>
                 }
             }
-
-<span class="fc" id="L39">            EItem temp=itemsOrdered.get(i);</span>
-<span class="fc" id="L40">            finalPrezzo+=temp.getPrice();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (itemsOrdered.get(i).getItemType()== itemType.mouse)</span>
+            {
+<span class="fc" id="L44">                n_mouse++;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">                if(!first_mouse){</span>
+<span class="fc" id="L46">                    min_mouse_price=itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L47">                    first_mouse=true;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">                } else if (itemsOrdered.get(i).getPrice()</span>
+                        &lt;min_mouse_price) {
+<span class="fc" id="L50">                    min_mouse_price = itemsOrdered.get(i).getPrice();</span>
+                }
+            }
+<span class="fc" id="L53">            EItem temp=itemsOrdered.get(i);</span>
+<span class="fc" id="L54">            finalPrezzo+=temp.getPrice();</span>
         }
-<span class="fc bfc" id="L42" title="All 2 branches covered.">        if(n_processori&gt;5){</span>
-<span class="fc" id="L43">            finalPrezzo-=(min_processori_price/2);</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if(n_processori&gt;5){</span>
+<span class="fc" id="L57">            finalPrezzo-=(min_processori_price/2);</span>
         }
-<span class="fc" id="L45">        return finalPrezzo;</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if(n_mouse&gt;10){</span>
+<span class="fc" id="L60">            finalPrezzo-=(min_mouse_price);</span>
+        }
+<span class="fc" id="L62">        return finalPrezzo;</span>
     }
 
-<span class="fc" id="L48">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
-<span class="fc" id="L49">        this.utente=utente;</span>
-<span class="fc" id="L50">        this.lista=lista;</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L65">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
+<span class="fc" id="L66">        this.utente=utente;</span>
+<span class="fc" id="L67">        this.lista=lista;</span>
+<span class="fc" id="L68">    }</span>
 
     public User getUser(){
-<span class="fc" id="L54">        return utente;</span>
+<span class="fc" id="L71">        return utente;</span>
     }
     public List&lt;EItem&gt; getList(){
-<span class="fc" id="L57">        return lista;</span>
+<span class="fc" id="L74">        return lista;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -39,7 +39,7 @@ public class ContoTest {
     }
 
     @Test
-    public void scontoProcessori() throws  BillException{
+    public void scontoProcessoriTest() throws  BillException{
         String nome="esempio";
         itemType processore=itemType.processori;
         itemType mouse=itemType.mouse;
@@ -63,6 +63,46 @@ public class ContoTest {
         lista.add(ottavo);
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
         double totale=715;
+        Conto conto1=new Conto(utente, lista);
+        double prezzo=conto1.getOrderPrice(conto1.getList(), conto1.getUser());
+        Assert.assertEquals(totale, prezzo, 0.01);
+    }
+
+    @Test
+    public void omaggioSuMouseTest() throws  BillException{
+        String nome="esempio";
+        itemType processore=itemType.processori;
+        itemType mouse=itemType.mouse;
+        itemType tastiera=itemType.tastiere;
+        List<EItem> lista=new ArrayList<>();
+        EItem primo=new EItem(nome, 50, mouse);
+        EItem secondo=new EItem(nome, 10, mouse);
+        EItem terzo=new EItem(nome, 30, mouse);
+        EItem quarto=new EItem(nome, 20, mouse);
+        EItem quinto=new EItem(nome, 30, mouse);
+        EItem sesto=new EItem(nome, 40, mouse);
+        EItem settimo=new EItem(nome, 80, mouse);
+        EItem ottavo=new EItem(nome, 60, mouse);
+        EItem nono=new EItem(nome, 20, mouse);
+        EItem decimo=new EItem(nome, 30, mouse);
+        EItem undicesimo=new EItem(nome, 10, mouse);
+        EItem dodicesimo=new EItem(nome, 20, tastiera);
+        EItem tredicsimo=new EItem(nome, 200, processore);
+        lista.add(primo);
+        lista.add(secondo);
+        lista.add(terzo);
+        lista.add(quarto);
+        lista.add(quinto);
+        lista.add(sesto);
+        lista.add(settimo);
+        lista.add(ottavo);
+        lista.add(nono);
+        lista.add(decimo);
+        lista.add(undicesimo);
+        lista.add(dodicesimo);
+        lista.add(tredicsimo);
+        User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+        double totale=590;
         Conto conto1=new Conto(utente, lista);
         double prezzo=conto1.getOrderPrice(conto1.getList(), conto1.getUser());
         Assert.assertEquals(totale, prezzo, 0.01);
