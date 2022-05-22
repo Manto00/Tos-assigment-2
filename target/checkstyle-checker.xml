@@ -5,7 +5,7 @@
     <module name="TreeWalker">
         <module name="BooleanExpressionComplexity"/>
         <module name="CyclomaticComplexity">
-			<property name="max" value="30"/>
+			<property name="max" value="40"/>
 		</module>
         <module name="MethodLength"/>
         <module name="EmptyCatchBlock"/>

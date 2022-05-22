@@ -337,4 +337,39 @@ public class ContoTest {
         }
         Assert.assertTrue(eccezione);
     }
+
+    @Test
+    public void CommissioniTest() throws BillException {
+        String nome="esempio";
+        itemType processore=itemType.processori;
+        itemType mouse=itemType.mouse;
+        itemType tastiere=itemType.tastiere;
+        User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+
+        //Setup Caso 1: Il prezzo totale è inferiore a 10, quindi viene aggiunto 2
+        List<EItem> lista1=new ArrayList<>();
+        EItem processore1=new EItem(nome, 7, processore);
+        lista1.add(processore1);
+        Conto conto1=new Conto(utente, lista1);
+        double totale1=9;
+
+        //Setup Caso 2: Il prezzo totale è maggiore a 10, ma tastiere e mouse sono
+        // in egual numero, quindi viene regalato il meno costoso. Il prezzo totale
+        // scende sotto a 10, quindi viene aggiunto 2
+        List<EItem> lista2=new ArrayList<>();
+        EItem mouse1=new EItem(nome, 8, mouse);
+        EItem tastiera1=new EItem(nome, 9, tastiere);
+        lista2.add(mouse1);
+        lista2.add(tastiera1);
+        Conto conto2=new Conto(utente, lista2);
+        double totale2=11;
+
+        //Chiamata alle funzioni
+        double prezzo1=conto1.getOrderPrice(conto1.getList(), conto1.getUser());    //Caso di mouse come oggetto meno caro
+        double prezzo2=conto2.getOrderPrice(conto2.getList(), conto2.getUser());    //Caso di tastiera come oggetto meno caro
+
+        //Controlli
+        Assert.assertEquals(totale1, prezzo1, 0.01);
+        Assert.assertEquals(totale2, prezzo2, 0.01);
+    }
 }

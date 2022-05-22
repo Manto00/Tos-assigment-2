@@ -118,23 +118,27 @@ public class Conto implements Bill{
 <span class="fc bfc" id="L118" title="All 2 branches covered.">        if(n_mouse&gt;10){</span>
 <span class="fc" id="L119">            finalPrezzo-=(min_mouse_price);</span>
         }
-        //Abbiamo deciso di applicare lo sconto sul prezzo totale dopo gli altri sconti/regali
-<span class="fc bfc" id="L122" title="All 2 branches covered.">        if(finalPrezzo&gt;1000){</span>
-<span class="fc" id="L123">            finalPrezzo-=finalPrezzo*10/100;</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">        if(finalPrezzo&lt;10)</span>
+        {
+<span class="fc" id="L123">            finalPrezzo+=2;</span>
         }
-<span class="fc" id="L125">        return finalPrezzo;</span>
+        //Abbiamo deciso di applicare lo sconto sul prezzo totale dopo gli altri sconti/regali
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        if(finalPrezzo&gt;1000){</span>
+<span class="fc" id="L127">            finalPrezzo-=finalPrezzo*10/100;</span>
+        }
+<span class="fc" id="L129">        return finalPrezzo;</span>
     }
 
-<span class="fc" id="L128">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
-<span class="fc" id="L129">        this.utente=utente;</span>
-<span class="fc" id="L130">        this.lista=lista;</span>
-<span class="fc" id="L131">    }</span>
+<span class="fc" id="L132">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
+<span class="fc" id="L133">        this.utente=utente;</span>
+<span class="fc" id="L134">        this.lista=lista;</span>
+<span class="fc" id="L135">    }</span>
 
     public User getUser(){
-<span class="fc" id="L134">        return utente;</span>
+<span class="fc" id="L138">        return utente;</span>
     }
     public List&lt;EItem&gt; getList(){
-<span class="fc" id="L137">        return lista;</span>
+<span class="fc" id="L141">        return lista;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
