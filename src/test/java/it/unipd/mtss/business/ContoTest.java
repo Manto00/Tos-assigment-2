@@ -253,4 +253,64 @@ public class ContoTest {
         Assert.assertEquals(totale3, prezzo3, 0.01);
         Assert.assertEquals(totale4, prezzo4, 0.01);
     }
+
+    @Test
+    public void scontoTotaleTest() throws BillException{
+        String nome="esempio";
+        itemType processore=itemType.processori;
+        itemType mouse=itemType.mouse;
+        User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+
+        //Setup Caso 1: Sconto del 10% senza altri sconti o omaggi
+        List<EItem> lista1=new ArrayList<>();
+        EItem processore1=new EItem(nome, 450, processore);
+        EItem processore2=new EItem(nome, 300, processore);
+        EItem processore3=new EItem(nome, 350, processore);
+        EItem processore4=new EItem(nome, 500, processore);
+        lista1.add(processore1);
+        lista1.add(processore2);
+        lista1.add(processore3);
+        lista1.add(processore4);
+        Conto conto1=new Conto(utente, lista1);
+        double totale1=1440;
+
+        //Setup Caso 2: prezzo totale superiore a 1000, ma viene applicato
+        // l'omaggio del mouse meno caro perchè ne vengono ordinati più di 10
+        //e lo sconto non viene applicato perchè il prezzo scende sotto 1000
+        List<EItem> lista2=new ArrayList<>();
+        EItem mouse1=new EItem(nome, 20, mouse);
+        EItem mouse2=new EItem(nome, 20, mouse);
+        EItem mouse3=new EItem(nome, 20, mouse);
+        EItem mouse4=new EItem(nome, 20, mouse);
+        EItem mouse5=new EItem(nome, 20, mouse);
+        EItem mouse6=new EItem(nome, 10, mouse);
+        EItem mouse7=new EItem(nome, 10, mouse);
+        EItem mouse8=new EItem(nome, 10, mouse);
+        EItem mouse9=new EItem(nome, 10, mouse);
+        EItem mouse10=new EItem(nome, 10, mouse);
+        EItem mouse11=new EItem(nome, 10, mouse);
+        lista2.add(mouse1);
+        lista2.add(mouse2);
+        lista2.add(mouse3);
+        lista2.add(mouse4);
+        lista2.add(mouse5);
+        lista2.add(mouse6);
+        lista2.add(mouse7);
+        lista2.add(mouse8);
+        lista2.add(mouse9);
+        lista2.add(mouse10);
+        lista2.add(mouse11);
+        lista2.add(processore3);
+        lista2.add(processore4);
+        Conto conto2=new Conto(utente, lista2);
+        double totale2=1000;
+
+        //Chiamata alle funzioni
+        double prezzo1=conto1.getOrderPrice(conto1.getList(), conto1.getUser());    //Caso di mouse come oggetto meno caro
+        double prezzo2=conto2.getOrderPrice(conto2.getList(), conto2.getUser());    //Caso di tastiera come oggetto meno caro
+
+        //Controlli
+        Assert.assertEquals(totale1, prezzo1, 0.01);
+        Assert.assertEquals(totale2, prezzo2, 0.01);
+    }
 }
