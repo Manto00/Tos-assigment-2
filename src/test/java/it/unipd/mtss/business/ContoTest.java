@@ -10,6 +10,7 @@ import it.unipd.mtss.model.itemType;
 import org.junit.Assert;
 import org.junit.Assert.*;
 import org.junit.Test;
+import org.junit.Rule;
 import it.unipd.mtss.model.User;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -312,5 +313,28 @@ public class ContoTest {
         //Controlli
         Assert.assertEquals(totale1, prezzo1, 0.01);
         Assert.assertEquals(totale2, prezzo2, 0.01);
+    }
+
+
+    @Test
+    public void Maggiore30ArticoliTest() {
+        String nome="esempio";
+        itemType mouse=itemType.mouse;
+        User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+        List<EItem> lista=new ArrayList<>();
+        EItem oggetto=new EItem(nome, 1, mouse);
+        for (int i=0; i<35; i++){
+            lista.add(oggetto);
+        }
+        Conto conto=new Conto(utente, lista);
+
+        boolean eccezione=false;
+        try{
+            conto.getOrderPrice(conto.getList(), conto.getUser());
+        }
+        catch(BillException e){
+            eccezione=true;
+        }
+        Assert.assertTrue(eccezione);
     }
 }
