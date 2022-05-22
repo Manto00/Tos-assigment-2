@@ -3,9 +3,15 @@
 // [RAFFAELE] [OLIVIERO] [1216748]
 ////////////////////////////////////////////////////////////////////
 
-package it.unipd.mtss.business.exception;
-public class BillException extends Throwable{
-    public BillException(String errore){
-        System.out.print(errore);
+package it.unipd.mtss.business;
+
+import it.unipd.mtss.business.Acquisti;
+import org.junit.Test;
+
+public class AcquistiTest {
+
+    @Test
+    public void omaggioTest(){
+
     }
 }
