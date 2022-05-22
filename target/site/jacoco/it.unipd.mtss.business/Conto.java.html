@@ -65,7 +65,7 @@ public class Conto implements Bill{
 <span class="fc" id="L65">            finalPrezzo+=temp.getPrice();</span>
         }
 
-<span class="pc bpc" id="L68" title="1 of 4 branches missed.">        if (n_mouse==n_tastiere &amp;&amp; n_mouse!=0) {</span>
+<span class="fc bfc" id="L68" title="All 4 branches covered.">        if (n_mouse==n_tastiere &amp;&amp; n_mouse!=0) {</span>
 <span class="fc" id="L69">            int min_mouse_tastiera = 0;</span>
 <span class="fc" id="L70">            double min_prezzo = 0;</span>
 
@@ -114,19 +114,23 @@ public class Conto implements Bill{
 <span class="fc bfc" id="L114" title="All 2 branches covered.">        if(n_mouse&gt;10){</span>
 <span class="fc" id="L115">            finalPrezzo-=(min_mouse_price);</span>
         }
-<span class="fc" id="L117">        return finalPrezzo;</span>
+        //Abbiamo deciso di applicare lo sconto sul prezzo totale dopo gli altri sconti/regali
+<span class="fc bfc" id="L118" title="All 2 branches covered.">        if(finalPrezzo&gt;1000){</span>
+<span class="fc" id="L119">            finalPrezzo-=finalPrezzo*10/100;</span>
+        }
+<span class="fc" id="L121">        return finalPrezzo;</span>
     }
 
-<span class="fc" id="L120">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
-<span class="fc" id="L121">        this.utente=utente;</span>
-<span class="fc" id="L122">        this.lista=lista;</span>
-<span class="fc" id="L123">    }</span>
+<span class="fc" id="L124">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
+<span class="fc" id="L125">        this.utente=utente;</span>
+<span class="fc" id="L126">        this.lista=lista;</span>
+<span class="fc" id="L127">    }</span>
 
     public User getUser(){
-<span class="fc" id="L126">        return utente;</span>
+<span class="fc" id="L130">        return utente;</span>
     }
     public List&lt;EItem&gt; getList(){
-<span class="fc" id="L129">        return lista;</span>
+<span class="fc" id="L133">        return lista;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
