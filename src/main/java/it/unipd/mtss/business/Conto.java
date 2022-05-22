@@ -118,6 +118,10 @@ public class Conto implements Bill{
         if(n_mouse>10){
             finalPrezzo-=(min_mouse_price);
         }
+        if(finalPrezzo<10)
+        {
+            finalPrezzo+=2;
+        }
         //Abbiamo deciso di applicare lo sconto sul prezzo totale dopo gli altri sconti/regali
         if(finalPrezzo>1000){
             finalPrezzo-=finalPrezzo*10/100;
