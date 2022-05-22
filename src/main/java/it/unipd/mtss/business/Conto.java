@@ -32,6 +32,10 @@ public class Conto implements Bill{
 
         for (int i=0; i<itemsOrdered.size(); i++){
 
+            if (itemsOrdered.size()>30){
+                throw new BillException("ERRORE! Sono stati ordinati più di 30 articoli");
+            }
+
             if(itemsOrdered.get(i).getItemType()== itemType.processori)
             {
                 n_processori++;
