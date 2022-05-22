@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
-<file name="D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Bill.java">
+<file name="C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Bill.java">
 </file>
-<file name="D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Conto.java">
+<file name="C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Conto.java">
 </file>
-<file name="D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\business\exception\BillException.java">
+<file name="C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\business\exception\BillException.java">
 </file>
-<file name="D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\model\EItem.java">
+<file name="C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\model\EItem.java">
 </file>
-<file name="D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\model\itemType.java">
+<file name="C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\model\itemType.java">
 </file>
-<file name="D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\model\User.java">
+<file name="C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\model\User.java">
 </file>
 </checkstyle>
