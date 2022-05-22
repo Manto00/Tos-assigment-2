@@ -10,6 +10,7 @@ import it.unipd.mtss.model.EItem;
 import it.unipd.mtss.model.User;
 import it.unipd.mtss.model.itemType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Conto implements Bill{
@@ -59,56 +60,53 @@ public class Conto implements Bill{
                 n_tastiere++;
             }
 
-            if (n_mouse==n_tastiere && n_mouse!=0){
-                int min_mouse_tastiera=0;
-                double min_prezzo=0;
-
-                for (int j=0; j< itemsOrdered.size(); j++){
-                    if ((   itemsOrdered.get(j).getItemType()==itemType.mouse
-                            || itemsOrdered.get(j).getItemType()==itemType.tastiere
-                        )   //L'oggetto è un mouse o una tastiera
-                            && (itemsOrdered.get(j).getPrice()<=min_prezzo || j==0
-                        )   //E costa <= l'oggetto meno caro o è il primo oggetto
-                        ){
-                        if (itemsOrdered.get(j).getPrice()==min_prezzo &&
-                                itemsOrdered.get(j).getItemType()==itemType.tastiere &&
-                                itemsOrdered.get(min_mouse_tastiera).getItemType()==itemType.mouse){
-                            //É stato trovato un oggetto con lo stesso prezzo
-                            //L'oggetto meno caro attuale è un mouse
-                            //Il secondo oggetto è una tastiera
-                            //Il mouse rimane l'oggetto meno caro
-                        }
-                        min_mouse_tastiera=j;
-                        min_prezzo=itemsOrdered.get(j).getPrice();
-                    }
-                }// POST: min_mouse_tastiera indica l'oggeto meno caro, favorendo i mouse
-
-                if (n_mouse>10
-                        && itemsOrdered.get(min_mouse_tastiera).getItemType()==itemType.mouse){
-                    min_prezzo=0;
-                    for (int j=0; j< itemsOrdered.size(); j++){
-                        if (j!=min_mouse_tastiera){
-                            if (itemsOrdered.get(j).getItemType()==itemType.tastiere
-                                    || itemsOrdered.get(j).getItemType()==itemType.mouse){
-                                if (j==0){
-                                    min_prezzo=itemsOrdered.get(j).getPrice();
-                                }
-                                else if (min_mouse_tastiera==0 && j==1){
-                                    min_prezzo=itemsOrdered.get(j).getPrice();
-                                }
-                                else if (itemsOrdered.get(j).getPrice()<min_prezzo){
-                                    min_prezzo=itemsOrdered.get(j).getPrice();
-                                }
-                            }
-                        }
-                    }
-                }
-                sconto_tastiere_mouse=min_prezzo;
-            }
 
             EItem temp=itemsOrdered.get(i);
             finalPrezzo+=temp.getPrice();
         }
+
+        if (n_mouse==n_tastiere && n_mouse!=0) {
+            int min_mouse_tastiera = 0;
+            double min_prezzo = 0;
+
+            for (int j = 0; j < itemsOrdered.size(); j++) {
+                if ((itemsOrdered.get(j).getItemType() == itemType.mouse
+                        || itemsOrdered.get(j).getItemType() == itemType.tastiere
+                )   //L'oggetto è un mouse o una tastiera
+                        && (itemsOrdered.get(j).getPrice() <= min_prezzo || j == 0
+                )   //E costa <= l'oggetto meno caro o è il primo oggetto
+                ) {
+                    if (itemsOrdered.get(j).getPrice() == min_prezzo &&
+                            itemsOrdered.get(j).getItemType() == itemType.tastiere &&
+                            itemsOrdered.get(min_mouse_tastiera).getItemType() == itemType.mouse) {
+                        //É stato trovato un oggetto con lo stesso prezzo
+                        //L'oggetto meno caro attuale è un mouse
+                        //Il secondo oggetto è una tastiera
+                        //Il mouse rimane l'oggetto meno caro
+                    }
+                    min_mouse_tastiera = j;
+                    min_prezzo = itemsOrdered.get(j).getPrice();
+                }
+            }// POST: min_mouse_tastiera indica l'oggeto meno caro, favorendo i mouse
+
+            if (n_mouse > 10
+                    && itemsOrdered.get(min_mouse_tastiera).getItemType() == itemType.mouse) {
+                List<EItem> copia = new ArrayList<>(itemsOrdered);
+                copia.remove(min_mouse_tastiera);
+                for (int j = 0; j < copia.size(); j++) {
+                    if ((copia.get(j).getItemType() == itemType.mouse
+                            || copia.get(j).getItemType() == itemType.tastiere
+                    )   //L'oggetto è un mouse o una tastiera
+                            && (copia.get(j).getPrice() <= min_prezzo || j == 0
+                    )   //E costa <= l'oggetto meno caro o è il primo oggetto
+                    ) {
+                        min_prezzo = copia.get(j).getPrice();
+                    }
+                }
+            }
+            sconto_tastiere_mouse = min_prezzo;
+        }
+
         finalPrezzo-=sconto_tastiere_mouse;
         if(n_processori>5){
             finalPrezzo-=(min_processori_price/2);
