@@ -22,56 +22,113 @@ public class Conto implements Bill{
 <span class="fc" id="L22">        double finalPrezzo=0;</span>
 <span class="fc" id="L23">        int n_processori=0;</span>
 <span class="fc" id="L24">        int n_mouse=0;</span>
-<span class="fc" id="L25">        double min_processori_price=0;</span>
-<span class="fc" id="L26">        double min_mouse_price=0;</span>
-<span class="fc" id="L27">        boolean first_mouse=false;</span>
-<span class="fc" id="L28">        boolean first_processore=false;</span>
+<span class="fc" id="L25">        int n_tastiere=0;</span>
+<span class="fc" id="L26">        double min_processori_price=0;</span>
+<span class="fc" id="L27">        double min_mouse_price=0;</span>
+<span class="fc" id="L28">        double sconto_tastiere_mouse=0;</span>
+<span class="fc" id="L29">        boolean first_mouse=true;</span>
+<span class="fc" id="L30">        boolean first_processore=true;</span>
 
-<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int i=0; i&lt;itemsOrdered.size(); i++){</span>
-<span class="fc bfc" id="L31" title="All 2 branches covered.">            if(itemsOrdered.get(i).getItemType()== itemType.processori)</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (int i=0; i&lt;itemsOrdered.size(); i++){</span>
+
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            if(itemsOrdered.get(i).getItemType()== itemType.processori)</span>
             {
-<span class="fc" id="L33">                n_processori++;</span>
-<span class="fc bfc" id="L34" title="All 2 branches covered.">                if(!first_processore){</span>
-<span class="fc" id="L35">                    min_processori_price=itemsOrdered.get(i).getPrice();</span>
-<span class="fc" id="L36">                    first_processore=true;</span>
-<span class="fc bfc" id="L37" title="All 2 branches covered.">                } else if (itemsOrdered.get(i).getPrice()</span>
+<span class="fc" id="L36">                n_processori++;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">                if(first_processore){</span>
+<span class="fc" id="L38">                    min_processori_price=itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L39">                    first_processore=false;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">                } else if (itemsOrdered.get(i).getPrice()</span>
                         &lt;min_processori_price) {
-<span class="fc" id="L39">                    min_processori_price = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L42">                    min_processori_price = itemsOrdered.get(i).getPrice();</span>
                 }
             }
-<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (itemsOrdered.get(i).getItemType()== itemType.mouse)</span>
+
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            if (itemsOrdered.get(i).getItemType()== itemType.mouse)</span>
             {
-<span class="fc" id="L44">                n_mouse++;</span>
-<span class="fc bfc" id="L45" title="All 2 branches covered.">                if(!first_mouse){</span>
-<span class="fc" id="L46">                    min_mouse_price=itemsOrdered.get(i).getPrice();</span>
-<span class="fc" id="L47">                    first_mouse=true;</span>
-<span class="fc bfc" id="L48" title="All 2 branches covered.">                } else if (itemsOrdered.get(i).getPrice()</span>
+<span class="fc" id="L48">                n_mouse++;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">                if(first_mouse){</span>
+<span class="fc" id="L50">                    min_mouse_price=itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L51">                    first_mouse=false;</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">                } else if (itemsOrdered.get(i).getPrice()</span>
                         &lt;min_mouse_price) {
-<span class="fc" id="L50">                    min_mouse_price = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L54">                    min_mouse_price = itemsOrdered.get(i).getPrice();</span>
                 }
             }
-<span class="fc" id="L53">            EItem temp=itemsOrdered.get(i);</span>
-<span class="fc" id="L54">            finalPrezzo+=temp.getPrice();</span>
+
+<span class="fc bfc" id="L58" title="All 2 branches covered.">            if (itemsOrdered.get(i).getItemType()== itemType.tastiere){</span>
+<span class="fc" id="L59">                n_tastiere++;</span>
+            }
+
+<span class="fc bfc" id="L62" title="All 4 branches covered.">            if (n_mouse==n_tastiere &amp;&amp; n_mouse!=0){</span>
+<span class="fc" id="L63">                int min_mouse_tastiera=0;</span>
+<span class="fc" id="L64">                double min_prezzo=0;</span>
+
+<span class="fc bfc" id="L66" title="All 2 branches covered.">                for (int j=0; j&lt; itemsOrdered.size(); j++){</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">                    if ((   itemsOrdered.get(j).getItemType()==itemType.mouse</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">                            || itemsOrdered.get(j).getItemType()==itemType.tastiere</span>
+                        )   //L'oggetto è un mouse o una tastiera
+<span class="fc bfc" id="L70" title="All 4 branches covered.">                            &amp;&amp; (itemsOrdered.get(j).getPrice()&lt;=min_prezzo || j==0</span>
+                        )   //E costa &lt;= l'oggetto meno caro o è il primo oggetto
+                        ){
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">                        if (itemsOrdered.get(j).getPrice()==min_prezzo &amp;&amp;</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">                                itemsOrdered.get(j).getItemType()==itemType.tastiere &amp;&amp;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">                                itemsOrdered.get(min_mouse_tastiera).getItemType()==itemType.mouse){</span>
+                            //É stato trovato un oggetto con lo stesso prezzo
+                            //L'oggetto meno caro attuale è un mouse
+                            //Il secondo oggetto è una tastiera
+                            //Il mouse rimane l'oggetto meno caro
+                        }
+<span class="fc" id="L81">                        min_mouse_tastiera=j;</span>
+<span class="fc" id="L82">                        min_prezzo=itemsOrdered.get(j).getPrice();</span>
+                    }
+                }// POST: min_mouse_tastiera indica l'oggeto meno caro, favorendo i mouse
+
+<span class="fc bfc" id="L86" title="All 2 branches covered.">                if (n_mouse&gt;10</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">                        &amp;&amp; itemsOrdered.get(min_mouse_tastiera).getItemType()==itemType.mouse){</span>
+<span class="fc" id="L88">                    min_prezzo=0;</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                    for (int j=0; j&lt; itemsOrdered.size(); j++){</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">                        if (j!=min_mouse_tastiera){</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">                            if (itemsOrdered.get(j).getItemType()==itemType.tastiere</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">                                    || itemsOrdered.get(j).getItemType()==itemType.mouse){</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">                                if (j==0){</span>
+<span class="nc" id="L94">                                    min_prezzo=itemsOrdered.get(j).getPrice();</span>
+                                }
+<span class="pc bpc" id="L96" title="1 of 4 branches missed.">                                else if (min_mouse_tastiera==0 &amp;&amp; j==1){</span>
+<span class="fc" id="L97">                                    min_prezzo=itemsOrdered.get(j).getPrice();</span>
+                                }
+<span class="fc bfc" id="L99" title="All 2 branches covered.">                                else if (itemsOrdered.get(j).getPrice()&lt;min_prezzo){</span>
+<span class="fc" id="L100">                                    min_prezzo=itemsOrdered.get(j).getPrice();</span>
+                                }
+                            }
+                        }
+                    }
+                }
+<span class="fc" id="L106">                sconto_tastiere_mouse=min_prezzo;</span>
+            }
+
+<span class="fc" id="L109">            EItem temp=itemsOrdered.get(i);</span>
+<span class="fc" id="L110">            finalPrezzo+=temp.getPrice();</span>
         }
-<span class="fc bfc" id="L56" title="All 2 branches covered.">        if(n_processori&gt;5){</span>
-<span class="fc" id="L57">            finalPrezzo-=(min_processori_price/2);</span>
+<span class="fc" id="L112">        finalPrezzo-=sconto_tastiere_mouse;</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">        if(n_processori&gt;5){</span>
+<span class="fc" id="L114">            finalPrezzo-=(min_processori_price/2);</span>
         }
-<span class="fc bfc" id="L59" title="All 2 branches covered.">        if(n_mouse&gt;10){</span>
-<span class="fc" id="L60">            finalPrezzo-=(min_mouse_price);</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if(n_mouse&gt;10){</span>
+<span class="fc" id="L117">            finalPrezzo-=(min_mouse_price);</span>
         }
-<span class="fc" id="L62">        return finalPrezzo;</span>
+<span class="fc" id="L119">        return finalPrezzo;</span>
     }
 
-<span class="fc" id="L65">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
-<span class="fc" id="L66">        this.utente=utente;</span>
-<span class="fc" id="L67">        this.lista=lista;</span>
-<span class="fc" id="L68">    }</span>
+<span class="fc" id="L122">    public Conto(User utente, List&lt;EItem&gt; lista){</span>
+<span class="fc" id="L123">        this.utente=utente;</span>
+<span class="fc" id="L124">        this.lista=lista;</span>
+<span class="fc" id="L125">    }</span>
 
     public User getUser(){
-<span class="fc" id="L71">        return utente;</span>
+<span class="fc" id="L128">        return utente;</span>
     }
     public List&lt;EItem&gt; getList(){
-<span class="fc" id="L74">        return lista;</span>
+<span class="fc" id="L131">        return lista;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
