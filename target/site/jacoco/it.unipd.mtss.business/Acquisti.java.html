@@ -36,17 +36,17 @@ public class Acquisti{
 <span class="fc" id="L36">        LocalDate oggi = LocalDate.now();</span>
 <span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int i=0; i&lt;copy.size(); i++){</span>
 <span class="fc" id="L38">            long daysBetween = DAYS.between(copy.get(i).getUser().getNascita(), oggi);</span>
-<span class="pc bpc" id="L39" title="1 of 2 branches missed.">            if (daysBetween&gt;=6570){</span>
-<span class="nc" id="L40">                copy.remove(i);</span>
-<span class="nc" id="L41">                i--;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            if (daysBetween&gt;=6570){</span>
+<span class="fc" id="L40">                copy.remove(i);</span>
+<span class="fc" id="L41">                i--;</span>
             }
         }
 
 <span class="fc bfc" id="L45" title="All 2 branches covered.">        for (int i=0; i&lt;copy.size(); i++){</span>
-<span class="pc bpc" id="L46" title="3 of 4 branches missed.">            if (!(copy.get(i).getOra().getHour()==18 || (copy.get(i).getOra().getHour()==19</span>
-<span class="nc bnc" id="L47" title="All 4 branches missed.">                    &amp;&amp; copy.get(i).getOra().getMinute()==0 &amp;&amp; copy.get(i).getOra().getSecond()==0))){</span>
-<span class="nc" id="L48">                copy.remove(i);</span>
-<span class="nc" id="L49">                i--;</span>
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">            if (!(copy.get(i).getOra().getHour()==18 || (copy.get(i).getOra().getHour()==19</span>
+<span class="pc bpc" id="L47" title="3 of 4 branches missed.">                    &amp;&amp; copy.get(i).getOra().getMinute()==0 &amp;&amp; copy.get(i).getOra().getSecond()==0))){</span>
+<span class="fc" id="L48">                copy.remove(i);</span>
+<span class="fc" id="L49">                i--;</span>
             }
         }
 
