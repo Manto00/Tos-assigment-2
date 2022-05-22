@@ -13,10 +13,12 @@ import org.junit.Test;
 import org.junit.Rule;
 import it.unipd.mtss.model.User;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import it.unipd.mtss.model.EItem;
+import java.time.LocalTime;
 import it.unipd.mtss.business.Bill;
 
 public class ContoTest {
@@ -24,6 +26,7 @@ public class ContoTest {
     @Test
     public void getOrderPriceTest() throws BillException {
         String nome="esempio";
+        LocalTime ora=LocalTime.of(1, 1, 1);
         itemType mouse=itemType.mouse;
         List<EItem> lista=new ArrayList<>();
         EItem primo=new EItem(nome, 100, mouse);
@@ -34,7 +37,7 @@ public class ContoTest {
         lista.add(terzo);
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
         double totale=160;
-        Conto conto1=new Conto(utente, lista);
+        Conto conto1=new Conto(utente, lista, ora);
         double prezzo=conto1.getOrderPrice(conto1.getList(), conto1.getUser());
         Assert.assertEquals(totale, prezzo, 0.01);
     }
@@ -63,8 +66,9 @@ public class ContoTest {
         lista.add(settimo);
         lista.add(ottavo);
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+        LocalTime ora=LocalTime.of(1, 1, 1);
         double totale=715;
-        Conto conto1=new Conto(utente, lista);
+        Conto conto1=new Conto(utente, lista, ora);
         double prezzo=conto1.getOrderPrice(conto1.getList(), conto1.getUser());
         Assert.assertEquals(totale, prezzo, 0.01);
     }
@@ -75,6 +79,7 @@ public class ContoTest {
         itemType processore=itemType.processori;
         itemType mouse=itemType.mouse;
         itemType tastiera=itemType.tastiere;
+        LocalTime ora=LocalTime.of(1, 1, 1);
         List<EItem> lista=new ArrayList<>();
         EItem primo=new EItem(nome, 50, mouse);
         EItem secondo=new EItem(nome, 10, mouse);
@@ -104,7 +109,7 @@ public class ContoTest {
         lista.add(tredicsimo);
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
         double totale=590;
-        Conto conto1=new Conto(utente, lista);
+        Conto conto1=new Conto(utente, lista, ora);
         double prezzo=conto1.getOrderPrice(conto1.getList(), conto1.getUser());
         Assert.assertEquals(totale, prezzo, 0.01);
     }
@@ -115,6 +120,7 @@ public class ContoTest {
         itemType mouse=itemType.mouse;
         itemType tastiera=itemType.tastiere;
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+        LocalTime ora=LocalTime.of(1, 1, 1);
 
         //Setup Caso 1: Mouse meno caro
         List<EItem> lista1=new ArrayList<>();
@@ -126,7 +132,7 @@ public class ContoTest {
         lista1.add(mouse2);
         lista1.add(tastiera1);
         lista1.add(tastiera2);
-        Conto conto1=new Conto(utente, lista1);
+        Conto conto1=new Conto(utente, lista1, ora);
         double totale1=150;
 
         //Setup Caso 2: Tastiera meno cara
@@ -139,7 +145,7 @@ public class ContoTest {
         lista2.add(mouse2);
         lista2.add(tastiera1);
         lista2.add(tastiera2);
-        Conto conto2=new Conto(utente, lista2);
+        Conto conto2=new Conto(utente, lista2, ora);
         double totale2=180;
 
         //Setup Caso 3: L'oggetto meno caro è un Mouse che viene regalato perchè più di 10 Mouse
@@ -189,7 +195,7 @@ public class ContoTest {
         lista3.add(tastiera9);
         lista3.add(tastiera10);
         lista3.add(tastiera11);
-        Conto conto3=new Conto(utente, lista3);
+        Conto conto3=new Conto(utente, lista3, ora);
         double totale3=100;
 
         //Setup Caso 4: L'oggetto meno caro è un Mouse che viene regalato perchè più di 10 Mouse
@@ -239,7 +245,7 @@ public class ContoTest {
         lista4.add(tastiera9);
         lista4.add(tastiera10);
         lista4.add(tastiera11);
-        Conto conto4=new Conto(utente, lista4);
+        Conto conto4=new Conto(utente, lista4, ora);
         double totale4=100;
 
         //Chiamata alle funzioni
@@ -261,6 +267,7 @@ public class ContoTest {
         itemType processore=itemType.processori;
         itemType mouse=itemType.mouse;
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+        LocalTime ora=LocalTime.of(1, 1, 1);
 
         //Setup Caso 1: Sconto del 10% senza altri sconti o omaggi
         List<EItem> lista1=new ArrayList<>();
@@ -272,7 +279,7 @@ public class ContoTest {
         lista1.add(processore2);
         lista1.add(processore3);
         lista1.add(processore4);
-        Conto conto1=new Conto(utente, lista1);
+        Conto conto1=new Conto(utente, lista1, ora);
         double totale1=1440;
 
         //Setup Caso 2: prezzo totale superiore a 1000, ma viene applicato
@@ -303,7 +310,7 @@ public class ContoTest {
         lista2.add(mouse11);
         lista2.add(processore3);
         lista2.add(processore4);
-        Conto conto2=new Conto(utente, lista2);
+        Conto conto2=new Conto(utente, lista2, ora);
         double totale2=1000;
 
         //Chiamata alle funzioni
@@ -321,12 +328,13 @@ public class ContoTest {
         String nome="esempio";
         itemType mouse=itemType.mouse;
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+        LocalTime ora=LocalTime.of(1, 1, 1);
         List<EItem> lista=new ArrayList<>();
         EItem oggetto=new EItem(nome, 1, mouse);
         for (int i=0; i<35; i++){
             lista.add(oggetto);
         }
-        Conto conto=new Conto(utente, lista);
+        Conto conto=new Conto(utente, lista, ora);
 
         boolean eccezione=false;
         try{
@@ -345,12 +353,13 @@ public class ContoTest {
         itemType mouse=itemType.mouse;
         itemType tastiere=itemType.tastiere;
         User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+        LocalTime ora=LocalTime.of(1, 1, 1);
 
         //Setup Caso 1: Il prezzo totale è inferiore a 10, quindi viene aggiunto 2
         List<EItem> lista1=new ArrayList<>();
         EItem processore1=new EItem(nome, 7, processore);
         lista1.add(processore1);
-        Conto conto1=new Conto(utente, lista1);
+        Conto conto1=new Conto(utente, lista1, ora);
         double totale1=9;
 
         //Setup Caso 2: Il prezzo totale è maggiore a 10, ma tastiere e mouse sono
@@ -361,7 +370,7 @@ public class ContoTest {
         EItem tastiera1=new EItem(nome, 9, tastiere);
         lista2.add(mouse1);
         lista2.add(tastiera1);
-        Conto conto2=new Conto(utente, lista2);
+        Conto conto2=new Conto(utente, lista2, ora);
         double totale2=11;
 
         //Chiamata alle funzioni
@@ -371,5 +380,25 @@ public class ContoTest {
         //Controlli
         Assert.assertEquals(totale1, prezzo1, 0.01);
         Assert.assertEquals(totale2, prezzo2, 0.01);
+    }
+
+    @Test
+    public void omaggioTest() throws BillException{
+        String nome="esempio";
+        itemType processore=itemType.processori;
+        itemType mouse=itemType.mouse;
+        itemType tastiere=itemType.tastiere;
+        User utente=new User("Mario", LocalDate.of(2000, 1, 1));
+        LocalTime ora=LocalTime.of(1, 1, 1);
+        List<EItem> lista=new ArrayList<>();
+        EItem processore1=new EItem(nome, 7, processore);
+        lista.add(processore1);
+        Conto conto=new Conto(utente, lista, ora);
+        double totale=0;
+
+        conto.setOmaggio(true);
+        double prezzo= conto.getOrderPrice(conto.getList(), conto.getUser());
+
+        Assert.assertEquals(totale, prezzo, 0.01);
     }
 }

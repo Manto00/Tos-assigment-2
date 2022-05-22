@@ -1,0 +1,7 @@
+it\unipd\mtss\business\exception\BillException.class
+it\unipd\mtss\business\Acquisti.class
+it\unipd\mtss\model\itemType.class
+it\unipd\mtss\business\Bill.class
+it\unipd\mtss\business\Conto.class
+it\unipd\mtss\model\EItem.class
+it\unipd\mtss\model\User.class

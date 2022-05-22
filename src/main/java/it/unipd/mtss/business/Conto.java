@@ -156,4 +156,9 @@ public class Conto implements Bill{
     public void setOmaggio(boolean value){
         omaggio=value;
     }
+
+
+    public boolean getOmaggio(){
+        return omaggio;
+    }
 }

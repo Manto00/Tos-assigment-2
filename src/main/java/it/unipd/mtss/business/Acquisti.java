@@ -6,13 +6,13 @@
 package it.unipd.mtss.business;
 
 import java.time.LocalDate;
-import java.time.LocalDate.*;
 import java.time.chrono.ChronoLocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverAnonymous;
 import it.unipd.mtss.business.Conto;
+import it.unipd.mtss.model.EItem;
+
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
 
@@ -20,6 +20,14 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public class Acquisti{
     private List<Conto> acquisti;
+
+    public Acquisti(List<Conto> acquisti){
+        this.acquisti=acquisti;
+    }
+
+    public Conto getConto(int i){
+        return acquisti.get(i);
+    }
 
     public void giveOmaggio(){
         Random rand= new Random();
@@ -35,13 +43,14 @@ public class Acquisti{
         }
 
         for (int i=0; i<copy.size(); i++){
-            if (!(copy.get(i).getOra().getHour()==18 || (copy.get(i).getOra().getHour()==19 && copy.get(i).getOra().getMinute()==0 && copy.get(i).getOra().getSecond()==0))){
+            if (!(copy.get(i).getOra().getHour()==18 || (copy.get(i).getOra().getHour()==19
+                    && copy.get(i).getOra().getMinute()==0 && copy.get(i).getOra().getSecond()==0))){
                 copy.remove(i);
                 i--;
             }
         }
 
-        for (int i=0; i<10 || copy.isEmpty(); i++){
+        for (int i=0; i<10 && copy.size()!=0; i++){
             int val=rand.nextInt(copy.size());
             copy.get(val).setOmaggio(true);
             String utente=copy.get(val).getUser().getName();

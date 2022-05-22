@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Acquisti.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">e-shop</a> &gt; <a href="index.source.html" class="el_package">it.unipd.mtss.business</a> &gt; <span class="el_source">Acquisti.java</span></div><h1>Acquisti.java</h1><pre class="source lang-java linenums">////////////////////////////////////////////////////////////////////
+// [GABRIELE] [MANTOAN] [1216746]
+// [RAFFAELE] [OLIVIERO] [1216748]
+////////////////////////////////////////////////////////////////////
+
+package it.unipd.mtss.business;
+
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import it.unipd.mtss.business.Conto;
+import it.unipd.mtss.model.EItem;
+
+import java.time.temporal.ChronoUnit;
+import java.util.Random;
+
+import static java.time.temporal.ChronoUnit.DAYS;
+
+public class Acquisti{
+    private List&lt;Conto&gt; acquisti;
+
+<span class="fc" id="L24">    public Acquisti(List&lt;Conto&gt; acquisti){</span>
+<span class="fc" id="L25">        this.acquisti=acquisti;</span>
+<span class="fc" id="L26">    }</span>
+
+    public Conto getConto(int i){
+<span class="fc" id="L29">        return acquisti.get(i);</span>
+    }
+
+    public void giveOmaggio(){
+<span class="fc" id="L33">        Random rand= new Random();</span>
+<span class="fc" id="L34">        List&lt;Conto&gt; copy = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L35">        copy.addAll(acquisti);</span>
+<span class="fc" id="L36">        LocalDate oggi = LocalDate.now();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int i=0; i&lt;copy.size(); i++){</span>
+<span class="fc" id="L38">            long daysBetween = DAYS.between(copy.get(i).getUser().getNascita(), oggi);</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">            if (daysBetween&gt;=6570){</span>
+<span class="nc" id="L40">                copy.remove(i);</span>
+<span class="nc" id="L41">                i--;</span>
+            }
+        }
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (int i=0; i&lt;copy.size(); i++){</span>
+<span class="pc bpc" id="L46" title="3 of 4 branches missed.">            if (!(copy.get(i).getOra().getHour()==18 || (copy.get(i).getOra().getHour()==19</span>
+<span class="nc bnc" id="L47" title="All 4 branches missed.">                    &amp;&amp; copy.get(i).getOra().getMinute()==0 &amp;&amp; copy.get(i).getOra().getSecond()==0))){</span>
+<span class="nc" id="L48">                copy.remove(i);</span>
+<span class="nc" id="L49">                i--;</span>
+            }
+        }
+
+<span class="pc bpc" id="L53" title="1 of 4 branches missed.">        for (int i=0; i&lt;10 &amp;&amp; copy.size()!=0; i++){</span>
+<span class="fc" id="L54">            int val=rand.nextInt(copy.size());</span>
+<span class="fc" id="L55">            copy.get(val).setOmaggio(true);</span>
+<span class="fc" id="L56">            String utente=copy.get(val).getUser().getName();</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">            for (int j=0; j&lt;copy.size(); j++){</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">                if (copy.get(j).getUser().getName()==utente){</span>
+<span class="fc" id="L59">                    copy.remove(j);</span>
+<span class="fc" id="L60">                    j--;</span>
+                }
+            }
+        }
+
+<span class="fc" id="L65">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

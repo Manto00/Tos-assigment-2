@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.business.ContoTest" time="0.003" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.business.AcquistiTest" time="0.446" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -56,12 +56,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="omaggioMouseTastiereTest" classname="it.unipd.mtss.business.ContoTest" time="0"/>
-  <testcase name="omaggioTest" classname="it.unipd.mtss.business.ContoTest" time="0"/>
-  <testcase name="getOrderPriceTest" classname="it.unipd.mtss.business.ContoTest" time="0"/>
-  <testcase name="scontoProcessoriTest" classname="it.unipd.mtss.business.ContoTest" time="0"/>
-  <testcase name="omaggioSuMouseTest" classname="it.unipd.mtss.business.ContoTest" time="0"/>
-  <testcase name="scontoTotaleTest" classname="it.unipd.mtss.business.ContoTest" time="0"/>
-  <testcase name="CommissioniTest" classname="it.unipd.mtss.business.ContoTest" time="0"/>
-  <testcase name="Maggiore30ArticoliTest" classname="it.unipd.mtss.business.ContoTest" time="0.001"/>
+  <testcase name="omaggioTest" classname="it.unipd.mtss.business.AcquistiTest" time="0.325"/>
 </testsuite>
