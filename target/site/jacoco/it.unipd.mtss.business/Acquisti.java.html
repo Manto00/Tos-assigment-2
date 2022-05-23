@@ -50,12 +50,12 @@ public class Acquisti{
             }
         }
 
-<span class="pc bpc" id="L53" title="1 of 4 branches missed.">        for (int i=0; i&lt;10 &amp;&amp; copy.size()!=0; i++){</span>
+<span class="fc bfc" id="L53" title="All 4 branches covered.">        for (int i=0; i&lt;10 &amp;&amp; copy.size()!=0; i++){</span>
 <span class="fc" id="L54">            int val=rand.nextInt(copy.size());</span>
 <span class="fc" id="L55">            copy.get(val).setOmaggio(true);</span>
 <span class="fc" id="L56">            String utente=copy.get(val).getUser().getName();</span>
 <span class="fc bfc" id="L57" title="All 2 branches covered.">            for (int j=0; j&lt;copy.size(); j++){</span>
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">                if (copy.get(j).getUser().getName()==utente){</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">                if (copy.get(j).getUser().getName()==utente){</span>
 <span class="fc" id="L59">                    copy.remove(j);</span>
 <span class="fc" id="L60">                    j--;</span>
                 }

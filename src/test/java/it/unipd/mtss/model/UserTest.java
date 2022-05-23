@@ -15,13 +15,27 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class UserTest {
     @Test
-    public void SingleConstructorTest(){
+    public void SingleConstructorCountTest(){
         String nome="Antonio";
         LocalDate nascita=LocalDate.of(1987, 6, 15);
         User.setCount(0);
         User utente=new User(nome, nascita);
         Assert.assertEquals(0, utente.getId());
+    }
+    @Test
+    public void SingleConstructorNomeTest(){
+        String nome="Antonio";
+        LocalDate nascita=LocalDate.of(1987, 6, 15);
+        User.setCount(0);
+        User utente=new User(nome, nascita);
         Assert.assertEquals(nome, utente.getName());
+    }
+    @Test
+    public void SingleConstructorNascitaTest(){
+        String nome="Antonio";
+        LocalDate nascita=LocalDate.of(1987, 6, 15);
+        User.setCount(0);
+        User utente=new User(nome, nascita);
         Assert.assertEquals(nascita, utente.getNascita());
     }
 
