@@ -53,9 +53,9 @@ public class Acquisti{
         for (int i=0; i<10 && copy.size()!=0; i++){
             int val=rand.nextInt(copy.size());
             copy.get(val).setOmaggio(true);
-            String utente=copy.get(val).getUser().getName();
+            int id=copy.get(val).getUser().getId();
             for (int j=0; j<copy.size(); j++){
-                if (copy.get(j).getUser().getName()==utente){
+                if (copy.get(j).getUser().getId()==id){
                     copy.remove(j);
                     j--;
                 }
