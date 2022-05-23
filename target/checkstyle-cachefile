@@ -1,9 +1,9 @@
-#Sun May 22 21:12:19 CEST 2022
-C\:\\Users\\Utente\\Desktop\\Universit\u00E0\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\business\\Acquisti.java=1653245126165
-C\:\\Users\\Utente\\Desktop\\Universit\u00E0\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\business\\Bill.java=1653165566112
-C\:\\Users\\Utente\\Desktop\\Universit\u00E0\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\business\\Conto.java=1653244662696
-C\:\\Users\\Utente\\Desktop\\Universit\u00E0\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\business\\exception\\BillException.java=1653235904381
-C\:\\Users\\Utente\\Desktop\\Universit\u00E0\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\model\\EItem.java=1653158990997
-C\:\\Users\\Utente\\Desktop\\Universit\u00E0\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\model\\User.java=1653165231812
-C\:\\Users\\Utente\\Desktop\\Universit\u00E0\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\model\\itemType.java=1653158991008
-configuration*?=42971C2C31CD03355B9C2C94817497C9AC82C186
+#Mon May 23 14:33:04 CEST 2022
+D\:\\Documents\\GitHub\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\model\\EItem.java=1653160766097
+D\:\\Documents\\GitHub\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\business\\exception\\BillException.java=1653308893864
+D\:\\Documents\\GitHub\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\business\\Bill.java=1653165732536
+D\:\\Documents\\GitHub\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\business\\Acquisti.java=1653308893836
+D\:\\Documents\\GitHub\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\model\\itemType.java=1653160766098
+D\:\\Documents\\GitHub\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\business\\Conto.java=1653308893860
+D\:\\Documents\\GitHub\\Tos-assigment-2\\src\\main\\java\\it\\unipd\\mtss\\model\\User.java=1653165732537
+configuration*?=7DAD2E0BE1F9D3C1FED25188B19EDC488A99EF96
