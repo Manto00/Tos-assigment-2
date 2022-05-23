@@ -1,6 +1,7 @@
-D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\model\EItem.java
-D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\business\exception\BillException.java
-D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\model\User.java
-D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Bill.java
-D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Conto.java
-D:\Documents\GitHub\Tos-assigment-2\src\main\java\it\unipd\mtss\model\itemType.java
+C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\business\exception\BillException.java
+C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\model\EItem.java
+C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Conto.java
+C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\model\itemType.java
+C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\model\User.java
+C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Acquisti.java
+C:\Users\Utente\Desktop\Università\Tos-assigment-2\src\main\java\it\unipd\mtss\business\Bill.java

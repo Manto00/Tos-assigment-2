@@ -4,7 +4,6 @@
 ////////////////////////////////////////////////////////////////////
 
 package it.unipd.mtss.business.exception;
-
 public class BillException extends Throwable{
     public BillException(String errore){
         System.out.print(errore);
