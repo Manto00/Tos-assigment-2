@@ -3,8 +3,8 @@ name: build
 on:
   push:
     branches:
-    -'main'
-    -'Eccezione'
+    - main
+    - 'Eccezione'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
